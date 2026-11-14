@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">ActiScan</string>
+    <string name="app_subtitle">Exported Activity Auditor for Android Developers</string>
+    <string name="rescan_cd">Scan ulang paket aplikasi</string>
+    <string name="export_txt_label">Export .txt</string>
+    <string name="export_txt_cd">Export laporan audit ke file TXT</string>
+    <string name="settings_cd">Pengaturan</string>
+    <string name="privacy_policy_cd">Kebijakan Privasi</string>
+
+    <!-- Onboarding / Disclaimer -->
+    <string name="disclaimer_badge">DEVELOPER AUDIT TOOL</string>
+    <string name="disclaimer_title">Pemberitahuan &amp; Ketentuan Penggunaan</string>
+    <string name="disclaimer_body">Aplikasi ini ditujukan untuk developer dan peneliti keamanan untuk mengaudit aplikasi milik mereka sendiri. Gunakan hanya pada perangkat dan aplikasi yang Anda miliki izinnya. Pengembang tidak bertanggung jawab atas penyalahgunaan.</string>
+    <string name="disclaimer_scope_title">Transparansi Teknis</string>
+    <string name="disclaimer_scope_1">Hanya membaca metadata publik komponen Activity (exported = true) melalui API resmi PackageManager.</string>
+    <string name="disclaimer_scope_2">Tidak mengakses data internal aplikasi lain, mematuhi penuh kontrol izin sistem Android, dan tidak menjalankan akses root.</string>
+    <string name="disclaimer_scope_3">Semua pemindaian dilakukan 100% lokal di perangkat tanpa mengirim data ke server mana pun.</string>
+    <string name="disclaimer_accept_btn">Saya Mengerti, Lanjutkan</string>
+    <string name="disclaimer_privacy_link">Baca Kebijakan Privasi</string>
+
+    <!-- Safety Notice -->
+    <string name="safety_banner_title">Mode Audit Manual Satu-Satu</string>
+    <string name="safety_banner_desc">Tidak ada peluncuran massal otomatis. Ketuk TEST untuk meluncurkan Activity via Intent publik resmi Android.</string>
+
+    <!-- Root Status Detection (Read-Only) -->
+    <string name="root_status_rooted">Perangkat Terdeteksi Rooted - Hasil audit dapat berbeda dari perangkat non-root</string>
+    <string name="root_status_non_root">Perangkat Non-Root</string>
+    <string name="root_status_unknown">Status Root Tidak Diketahui</string>
+    <string name="root_toggle_title">Tampilkan Status Root</string>
+    <string name="root_toggle_desc">Menampilkan indikator deteksi pasif status root perangkat pada halaman utama. Aplikasi tidak pernah meminta akses root atau menjalankan perintah su.</string>
+
+    <!-- Search & Filters -->
+    <string name="search_placeholder">Cari aplikasi, package, activity, atau izin...</string>
+    <string name="clear_search_cd">Hapus pencarian</string>
+    <string name="filter_all">Semua</string>
+    <string name="filter_no_permission">Tanpa Izin</string>
+    <string name="filter_has_permission">Berizin</string>
+    <string name="filter_launched">Launched</string>
+    <string name="filter_denied">Denied</string>
+    <string name="filter_user_apps">User Apps</string>
+    <string name="filter_system_apps">System Apps</string>
+
+    <!-- Component Details & Neutral Status Labels -->
+    <string name="permission_none">TANPA IZIN</string>
+    <string name="status_launched">LAUNCHED</string>
+    <string name="status_launched_desc">Berhasil Diluncurkan</string>
+    <string name="status_denied">DENIED</string>
+    <string name="status_denied_desc">Ditolak Sistem (SecurityException)</string>
+    <string name="status_requires_params">REQUIRES_PARAMETERS</string>
+    <string name="status_requires_params_desc">Membutuhkan Parameter Tambahan</string>
+    <string name="status_not_tested">NOT_TESTED</string>
+    <string name="status_not_tested_desc">Belum Diuji</string>
+
+    <!-- Actions -->
+    <string name="btn_test_single">TEST</string>
+    <string name="btn_retest_single">TEST ULANG</string>
+    <string name="btn_copy_component_cd">Salin nama component</string>
+    <string name="badge_system">SYSTEM</string>
+    <string name="badge_user">USER</string>
+    <string name="badge_enabled">ENABLED</string>
+    <string name="badge_disabled">DISABLED</string>
+
+    <!-- States & Stats -->
+    <string name="scanning_title">Memindai PackageManager…</string>
+    <string name="scanning_subtitle">Mengambil metadata publik Activity dengan exported = true</string>
+    <string name="empty_results_title">Tidak ada Activity yang cocok</string>
+    <string name="empty_results_desc">Coba ubah filter atau kata kunci pencarian, atau tekan Scan Ulang.</string>
+    <string name="stat_exported">Exported</string>
+    <string name="stat_no_perm">Tanpa Izin</string>
+    <string name="stat_launched">Launched</string>
+    <string name="stat_denied">Denied</string>
+    <string name="copied_component">Component disalin: %1$s</string>
+
+    <!-- Detail Labels -->
+    <string name="detail_package_label">Package Name</string>
+    <string name="detail_activity_label">Activity Name</string>
+    <string name="detail_permission_label">Permission</string>
+
+    <!-- Settings & Privacy Policy -->
+    <string name="settings_title">Pengaturan Audit</string>
+    <string name="settings_view_disclaimer">Lihat Disclaimer Penggunaan</string>
+    <string name="settings_view_privacy">Kebijakan Privasi</string>
+    <string name="privacy_title">Kebijakan Privasi</string>
+    <string name="privacy_body_1">1. Tanpa Pengumpulan Data Pribadi\nActiScan tidak mengumpulkan, menyimpan secara eksternal, maupun membagikan data pribadi atau daftar aplikasi terinstall di perangkat Anda.</string>
+    <string name="privacy_body_2">2. Pemrosesan 100% Lokal\nSeluruh pemindaian PackageManager, deteksi pasif status root, dan pengujian ComponentName berjalan sepenuhnya secara lokal di perangkat Anda. Aplikasi ini tidak terhubung ke server eksternal mana pun.</string>
+    <string name="privacy_body_3">3. Hanya Membaca Metadata Publik\nActiScan hanya membaca deklarasi manifest Activity yang ditandai exported = true untuk keperluan audit pengembang. Aplikasi tidak membaca data internal, file, atau basis data milik aplikasi lain.</string>
+    <string name="privacy_body_4">4. Export Laporan oleh Pengguna\nFile laporan .txt hanya dibuat dan disimpan ke lokasi pilihan Anda saat Anda menekan tombol Export .txt menggunakan pemilih file resmi Android (Storage Access Framework).</string>
+    <string name="close_label">Tutup</string>
+</resources>

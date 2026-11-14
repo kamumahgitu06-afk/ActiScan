@@ -1,0 +1,6 @@
+{
+  "name": "ActiScan",
+  "description": "Exported Activity Auditor for Android Developers — local manifest component inspection and TXT audit report export",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
