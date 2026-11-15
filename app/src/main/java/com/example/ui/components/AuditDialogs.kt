@@ -153,6 +153,12 @@ fun SettingsDialog(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(stringResource(R.string.settings_view_disclaimer))
                 }
+
+                Text(
+                    text = stringResource(R.string.developer_credit),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         },
         confirmButton = {
@@ -208,6 +214,12 @@ fun PrivacyPolicyDialog(
                     text = stringResource(R.string.privacy_body_4),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface
+                )
+                HorizontalDivider()
+                Text(
+                    text = stringResource(R.string.developer_credit),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         },

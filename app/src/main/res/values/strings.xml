@@ -85,5 +85,6 @@
     <string name="privacy_body_2">2. Pemrosesan 100% Lokal\nSeluruh pemindaian PackageManager, deteksi pasif status root, dan pengujian ComponentName berjalan sepenuhnya secara lokal di perangkat Anda. Aplikasi ini tidak terhubung ke server eksternal mana pun.</string>
     <string name="privacy_body_3">3. Hanya Membaca Metadata Publik\nActiScan hanya membaca deklarasi manifest Activity yang ditandai exported = true untuk keperluan audit pengembang. Aplikasi tidak membaca data internal, file, atau basis data milik aplikasi lain.</string>
     <string name="privacy_body_4">4. Export Laporan oleh Pengguna\nFile laporan .txt hanya dibuat dan disimpan ke lokasi pilihan Anda saat Anda menekan tombol Export .txt menggunakan pemilih file resmi Android (Storage Access Framework).</string>
+    <string name="developer_credit">Developer: RIEKI NUR FAUZI</string>
     <string name="close_label">Tutup</string>
 </resources>

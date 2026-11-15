@@ -1,5 +1,7 @@
 # ActiScan — Exported Activity Auditor for Android Developers
 
+**Developer:** RIEKI NUR FAUZI
+
 **ActiScan** adalah aplikasi developer tool native Android (Kotlin & Jetpack Compose) untuk mengaudit komponen `Activity` yang berstatus `exported="true"` pada perangkat milik pengguna/developer sendiri secara lokal.
 
 ## Tujuan & Ruang Lingkup
