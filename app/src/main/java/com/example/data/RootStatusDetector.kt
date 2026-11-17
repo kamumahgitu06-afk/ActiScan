@@ -16,6 +16,10 @@ import kotlinx.coroutines.withContext
  * - Does NOT execute `su` or any shell command.
  * - Does NOT request root privileges.
  * - Strictly respects OS permission boundaries and never accesses restricted app data.
+ *
+ * Note: Intentionally does NOT treat `Build.TAGS` (`test-keys`) or bootloader unlock (UBL)
+ * properties as root indicators, because devices with only an unlocked bootloader or custom
+ * ROM without root binaries would otherwise be falsely flagged as rooted.
  */
 class RootStatusDetector(private val context: Context) {
 
@@ -23,7 +27,11 @@ class RootStatusDetector(private val context: Context) {
         "/system/bin/su",
         "/system/xbin/su",
         "/sbin/su",
-        "/data/local/xbin/su"
+        "/debug_ramdisk/su",
+        "/vendor/bin/su",
+        "/su/bin/su",
+        "/data/local/xbin/su",
+        "/data/local/bin/su"
     )
 
     private val knownRootManagerPackages = listOf(
@@ -37,22 +45,20 @@ class RootStatusDetector(private val context: Context) {
 
     suspend fun detect(): RootDetectionResult = withContext(Dispatchers.IO) {
         runCatching {
-            val indicators = mutableListOf<String>()
+            val indicators = LinkedHashSet<String>()
 
-            // 1. Passive file existence check for common su binary paths
+            // 1. Passive file existence check for Android su binary paths
             for (path in suBinaryPaths) {
-                if (runCatching { File(path).exists() }.getOrDefault(false)) {
-                    indicators.add("Binary path ditemukan: $path")
+                val existsAsFile = runCatching {
+                    val file = File(path)
+                    file.exists() && file.isFile
+                }.getOrDefault(false)
+                if (existsAsFile) {
+                    indicators.add("Binary su ditemukan: $path")
                 }
             }
 
-            // 2. Check Build.TAGS for test-keys
-            val buildTags = Build.TAGS
-            if (!buildTags.isNullOrBlank() && buildTags.contains("test-keys", ignoreCase = true)) {
-                indicators.add("Build.TAGS mengandung test-keys")
-            }
-
-            // 3. Passive PackageManager check for known root manager apps (no execution)
+            // 2. Passive PackageManager check for known root manager apps (no execution)
             val pm = context.packageManager
             for (pkgName in knownRootManagerPackages) {
                 if (isPackageInstalled(pm, pkgName)) {
@@ -60,9 +66,10 @@ class RootStatusDetector(private val context: Context) {
                 }
             }
 
+            val indicatorList = indicators.toList()
             RootDetectionResult(
-                status = if (indicators.isNotEmpty()) RootStatus.ROOTED else RootStatus.NON_ROOTED,
-                indicators = indicators
+                status = if (indicatorList.isNotEmpty()) RootStatus.ROOTED else RootStatus.NON_ROOTED,
+                indicators = indicatorList
             )
         }.getOrElse {
             RootDetectionResult(status = RootStatus.UNKNOWN, indicators = emptyList())

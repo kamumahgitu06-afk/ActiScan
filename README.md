@@ -20,7 +20,7 @@
    - `DENIED` — Ditolak Sistem (`SecurityException`)
    - `REQUIRES_PARAMETERS` — Membutuhkan Parameter Tambahan
    - `NOT_TESTED` — Belum Diuji
-4. **Deteksi Status Root (Read-Only)**: Indikator pasif status perangkat (`Rooted` / `Non-Root`) melalui pengecekan file biner `su`, `Build.TAGS`, dan `PackageManager` tanpa menjalankan perintah `su` atau meminta akses root. Dapat disembunyikan melalui Pengaturan.
+4. **Deteksi Status Root (Read-Only)**: Indikator pasif status perangkat (`Rooted` / `Non-Root`) melalui pengecekan file biner `su` dan `PackageManager` (tanpa menandai UBL/`test-keys` sebagai root, serta tanpa menjalankan perintah `su` atau meminta akses root). Dapat disembunyikan melalui Pengaturan.
 5. **Export Laporan `.txt`**: Menyimpan laporan audit lokal ke file `.txt` menggunakan Storage Access Framework (`ACTION_CREATE_DOCUMENT`) tanpa memerlukan izin penyimpanan luas.
 
 ## Penggunaan Izin `QUERY_ALL_PACKAGES`

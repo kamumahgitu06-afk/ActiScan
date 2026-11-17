@@ -91,6 +91,15 @@ class ExampleRobolectricTest {
         val initialResult = detector.detect()
         assertEquals(RootStatus.NON_ROOTED, initialResult.status)
 
+        // Simulate unlocked bootloader / custom build tag (test-keys) without su or root manager
+        org.robolectric.util.ReflectionHelpers.setStaticField(
+            android.os.Build::class.java,
+            "TAGS",
+            "test-keys"
+        )
+        val ublOnlyResult = detector.detect()
+        assertEquals(RootStatus.NON_ROOTED, ublOnlyResult.status)
+
         val magiskPkg = PackageInfo().apply {
             packageName = "com.topjohnwu.magisk"
             applicationInfo = ApplicationInfo().apply {
